@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.cardsSection {
+  border: 1px solid blue;
+}
+.cardsUl {
+  padding: 2rem;
+  border: 1px solid red;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.liCard {
+  border: 1px solid green;
+  padding: 5px;
+  flex-basis: 13rem;
+  height: 13rem;
+}
+.ulCardProp {
+  border: 1px solid purple;
+  padding: 2px;
+}
+.liProp {
+  border: 1px solid magenta;
+}
