@@ -1,4 +1,3 @@
-// document.querySelector('form').addEventListener('submit', (event)=> event.preventDefault())
 
 class Movie {
   title;
@@ -40,7 +39,7 @@ const locadora = [
   },
 ];
 
-listarFilmes(locadora);
+listarFilmes(locadora)
 const btnCadastrar = document.querySelector("#btnCadastrar");
 btnCadastrar.addEventListener("click", cadastrar);
 
@@ -59,66 +58,84 @@ function cadastrar() {
     movieTitle.value = "";
     score = "";
     movieLength = "";
-    console.log(locadora);
   } else {
     console.log("novo");
     const movie = new Movie(movieTitle.value, score, movieLength);
-    console.log(movie);
-    locadora.push(movie);
-    console.log(locadora);
     movieTitle.value = "";
     score = "";
     movieLength = "";
+    locadora.push(movie)
   }
   listarFilmes(locadora);
 }
 
 function listarFilmes(array) {
-  let i = 1;
   const cardsUl = document.querySelector(".cardsUl");
   cardsUl.innerHTML = null;
 
   array.forEach((item) => {
-    console.log(`Filme ${i}`);
     const liCard = document.createElement("li");
     liCard.className = "liCard";
     const ulCardProp = document.createElement("ul");
     ulCardProp.className = "ulCardProp";
+    const heartImg = document.createElement('img');
+    heartImg.className = 'heartImg'
+    heartImg.src = 'https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/heart-icon.png'
 
-    item.id = i;
+    // item.id = i;
     for (const value in item) {
       if (value === "title" || value === "score" || value === "movieLength") {
-        console.log(value + ": " + item[value]);
+
         const li = document.createElement("li");
         li.innerHTML = `${value}: ${item[value]}`;
 
         li.className = "liProp";
         ulCardProp.appendChild(li);
       }
-    }
-    console.log("-------------------");
-    i++;
+    ulCardProp.appendChild(heartImg)
     liCard.appendChild(ulCardProp);
     cardsUl.appendChild(liCard);
+    };
   });
 }
 
 const searchInput = document.querySelector("#searchInput");
-searchInput.addEventListener("search", buscar);
+const searchSection = document.querySelector('.searchSection')
+const text = document.createElement('p')
+searchSection.appendChild(text)
+searchInput.addEventListener("keyup", seekMovie)
+  let finderArray = []
 
-function buscar() {
-  let finder = searchInput.value;
-
-  console.log(finder);
-  let findArray = [];
-  if ((finder = "")) {
-    findArray = locadora;
+function seekMovie(e) {
+  e.preventDefault() 
+  const searchTextValue = e.target.value
+  text.innerHTML = searchTextValue  
+  
+  if(!searchTextValue){
+    finderArray = locadora.map(item=>item) 
+  }else{
+    finderArray = []
+    finderArray = 
+      locadora.map(movie=>{
+      if(movie.title.toLowerCase().includes(searchTextValue.toLowerCase())){
+        return movie
+      }
+    })
   }
-  // const findArray = ()=>locadora.map(movie => movie.title.toLowerCase()).filter((title)=> title.includes(finder.toLowerCase()))
+  
+  listarFilmes(finderArray)
+  heartToggling()
+};
 
-  console.log(findArray);
-  const cardsUl = document.querySelector(".cardsUl");
-  cardsUl.innerHTML = null;
-  listarFilmes(findArray);
+
+function heartToggling(){
+const heartImg = document.querySelectorAll('.heartImg')
+const heartToggle = heartImg.forEach(img =>{
+  img.addEventListener('click', (e)=>{
+    'stric mode'
+    img.classList.toggle('heartImgOpac')
+  })
 }
-window.addEventListener("onload", buscar);
+                )
+}
+heartToggling()
