@@ -5,6 +5,19 @@
   list-style: none;
 }
 
+header {
+  width:70rem;
+  margin: auto;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+main{
+  width: 70rem;
+  border: 1px solid red;
+  margin: auto;
+  margin-top: 2rem;
+}
 .searchSection > *{
   display: inline-block
 }

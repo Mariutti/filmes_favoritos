@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="index.html">INDEX</a>
+
+
+    <main>
+        <section class="formSection">
+          <form action="#">
+            <fieldset>
+              <legend>Cadastre seu filme!</legend>
+              <label for="title"
+                >Título:
+                <input type="text" name="title" id="title" />
+              </label>
+              <label for="score"
+                >Nota:
+                <input type="number" name="score" id="score" />
+              </label>
+              <label for="movieLength"
+                >Duração:
+                <input type="time" name="movieLength" id="movieLength" />
+              </label>
+              <button type="submit" id="btnCadastrar">Cadastrar filme</button>
+            </fieldset>
+          </form>
+        </section>
+        <section class="searchSection">
+          <label for="searchInput">
+            <input
+              type="search"
+              name="searchInput"
+              id="searchInput"
+              placeholder="pesquisa"
+            />
+          </label>
+        </section>
+        <section class="cardsSection">
+          <ul class="cardsUl">
+            <li class="liCard">
+                <ul class="ulCardProp">
+                  <li class="liProp title">title: Titulo</li>
+                  <li class="liProp score">score: 5</li>
+                  <li class="liProp movieLength">movieLength: 02:37</li>
+                  <img
+                    src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/heart-icon.png"
+                    alt="heart-icon" class="heartImg"
+                  />
+                </ul>
+              </li>
+          </ul>
+        </section>
+      </main>
+
+
+  </body>
+</html>
