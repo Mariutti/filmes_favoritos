@@ -56,6 +56,10 @@ function cadastrar() {
     locadora.push(movie);
   }
   listarFilmes(locadora);
+  heartToggling()
+  movieTitle.value = "";
+  score = "";
+  movieLength = "";
 }
 
 function listarFilmes(array) {
@@ -72,7 +76,6 @@ function listarFilmes(array) {
     heartImg.src =
       "https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/heart-icon.png";
 
-    // item.id = i;
     for (const value in item) {
       if (value === "title" || value === "score" || value === "movieLength") {
         const li = document.createElement("li");
@@ -88,10 +91,14 @@ function listarFilmes(array) {
         }
         ulCardProp.appendChild(li);
       }
+      if(item.favorite){
+        heartImg.classList.remove('heartImgOpac')
+      }
       ulCardProp.appendChild(heartImg);
       liCard.appendChild(ulCardProp);
       cardsUl.appendChild(liCard);
     }
+    
   });
 }
 
@@ -145,7 +152,6 @@ function heartToggling() {
       favorite()
       img.classList.toggle("heartImgOpac");
     });
-    console.log(finderArray)
   });
  
 }
