@@ -2,6 +2,9 @@ class Movie {
   title;
   score;
   movieLength;
+  favorite;
+  watched;
+
   constructor(title, score, movieLength) {
     this.title = title;
     this.score = score;
@@ -10,33 +13,20 @@ class Movie {
     this.watched = false;
   }
   teste() {
-    return "teste executado";
+    console.log("teste executado");
+    
+  }
+  get title(){
+    return this.title
   }
 }
 
-const locadora = [
-  {
-    title: "Titulo",
-    score: "5",
-    movieLength: "02:37",
-    favorite: false,
-    watched: false,
-  },
-  {
-    title: "Hobbit",
-    score: "5",
-    movieLength: "02:37",
-    favorite: false,
-    watched: false,
-  },
-  {
-    title: "Outro",
-    score: "5",
-    movieLength: "02:37",
-    favorite: false,
-    watched: false,
-  },
-];
+const locadora = [ 
+  new Movie("Titulo", "5", "01:12"),
+  new Movie("Hobbit", "5", "01:12"),
+  new Movie("LotR", "5", "01:12"),
+  new Movie("Star Wars", "5", "01:12")
+]
 
 listarFilmes(locadora);
 const btnCadastrar = document.querySelector("#btnCadastrar");
@@ -143,15 +133,6 @@ function heartToggling() {
       const favorite = ()=>{
         let tituloDaImg = e.target.parentNode.firstChild.innerText.slice(7)
         locadora.forEach((movie)=>{
-          if(movie.title === tituloDaImg){
-            if(movie.favorite == false){
-              movie.favorite = true
-            }else{
-              movie.favorite = false
-            }
-          }
-        })
-        finderArray.forEach((movie)=>{
           if(movie.title === tituloDaImg){
             if(movie.favorite == false){
               movie.favorite = true
