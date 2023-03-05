@@ -190,6 +190,5 @@ function contarFavoritos(array){
     return i++
     }
   })
-  console.log(i)
   return i
 }
