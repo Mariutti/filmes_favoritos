@@ -25,7 +25,8 @@ const locadora = [
   new Movie("Titulo", "5", "01:12"),
   new Movie("Hobbit", "5", "01:12"),
   new Movie("LotR", "5", "01:12"),
-  new Movie("Star Wars", "5", "01:12")
+  new Movie("Star Wars", "5", "01:12"),
+  new Movie("A mumia", "5", "01:12")
 ]
 
 listarFilmes(locadora);
@@ -142,18 +143,24 @@ function heartToggling() {
         locadora.forEach((movie)=>{
           if(movie.title === tituloDaImg){
             if(movie.favorite == false){
-              movie.favorite = true
+              if(contarFavoritos(locadora) >= 3){
+                console.log("não pode adicionar mais")
+                alert("não pode adicionar mais favoritos")
+              }else {
+              movie.favorite = true 
+              e.target.classList.remove('heartImgOpac') }          
             }else{
               movie.favorite = false
+              e.target.classList.add('heartImgOpac')  
             }
+            contarFavoritos(locadora)
           }
         })
       }
       favorite()
-      img.classList.toggle("heartImgOpac");
     });
   });
- 
+  
 }
 heartToggling();
 
@@ -175,3 +182,14 @@ const checarFinder = (vetor) => {
   }
   listarFilmes(vetor);
 };
+
+function contarFavoritos(array){
+  let i = 0
+  array.forEach((movie)=>{
+    if(movie.favorite){
+    return i++
+    }
+  })
+  console.log(i)
+  return i
+}
