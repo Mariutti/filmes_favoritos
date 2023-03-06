@@ -6,22 +6,36 @@
   list-style: none;
 }
 body {
-  height: 92vh
+  height: 85vh;
+  background-color: darkgrey;
 }
 
 header {
   width:70%;
-  margin: auto;
+  margin: 1rem auto 0 auto;
   text-align: center;
   padding: 1rem;
+  background-color: white;
+  border-radius: 2rem 2rem 0 0;
 }
 
+header div {
+  border: 2px solid blue;
+  padding: 2rem;
+  border-radius: 1rem;
+  /* text-transform: capitalize; */
+}
+header div h1 {
+  text-transform: uppercase;
+}
 main{
   width: 70%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: auto;
   height: 92%;
-  padding: 1rem
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0 0 2rem 2rem;;
 }
 
 fieldset > legend{
@@ -32,6 +46,7 @@ fieldset {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  border-radius: 1rem;
 }
 label{
   display: flex;
@@ -55,7 +70,9 @@ label{
 }
 
 .cardsSection {
-/*   border: 1px solid blue; */
+  border: 1px solid blue;
+  height: 85%;
+border-radius: 1rem;
 }
 .cardsUl{
 /*   border: 1px solid red; */
@@ -69,6 +86,12 @@ label{
   border: 1px solid green;
   padding: 1rem;
   flex-basis: fill;
+  border-radius: 1rem;
+  font-weight: bold;
+  color: rgba(240, 248, 255, 0.842);
+  /* background-color: rgb(129, 127, 255); */
+  background-color: darkgrey;
+  font-size: 0.9rem;
 }
 .ulCardProp{
 /*   border: 1px solid purple; */
@@ -89,3 +112,6 @@ padding: 0.5rem;
   opacity: 0.4
 }
 
+.watched {
+  background-color: rgb(129, 127, 255);;
+}

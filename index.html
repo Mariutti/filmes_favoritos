@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header>
-      <h1>Filmoteca</h1>
-      <p>Registre sua coleção de filmes!</p>
-      <a href="/mockup.html">MOCKUP</a>
+      <div>        
+        <h1>Filmoteca</h1>
+        <p>Registre sua coleção de filmes!</p>
+        <a href="/mockup.html">MOCKUP</a>
+      </div>
     </header>
 
     <main>
@@ -25,7 +27,7 @@
             </label>
             <label for="score"
               >Nota:
-              <input type="number" name="score" id="score" />
+              <input type="number" name="score" id="score" max="5" min="0" />
             </label>
             <label for="movieLength"
               >Duração:

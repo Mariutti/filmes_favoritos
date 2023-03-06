@@ -138,6 +138,7 @@ function heartToggling() {
     img.addEventListener("click", (e) => {
       "strict mode";
       e.preventDefault()
+      e.stopPropagation()
       const favorite = ()=>{
         let tituloDaImg = e.target.parentNode.firstChild.innerText.slice(7)
         locadora.forEach((movie)=>{
@@ -160,7 +161,6 @@ function heartToggling() {
       favorite()
     });
   });
-  
 }
 heartToggling();
 
@@ -192,3 +192,41 @@ function contarFavoritos(array){
   })
   return i
 }
+
+
+function watchedMovie() {
+  const listItem = document.querySelectorAll(".liCard");
+  const watchedToggle = listItem.forEach((card) => {
+    
+    card.addEventListener("click", (e) => {
+      "strict mode";
+      e.preventDefault()      
+      e.stopPropagation()
+      console.log(e)
+      const watched = ()=>{
+
+        let movieName = e.target.parentNode.firstChild.innerText.slice(7)
+
+        locadora.forEach((movie)=>{
+          if(movie.title === movieName){
+            if(movie.watched === false){
+              console.log("assistido")
+              console.log(card)
+              movie.watched = true
+              card.className = 'liCard watched'
+            }else{
+              console.log(card)
+              console.log("não assistido")
+              movie.watched = false 
+              
+              card.className = 'liCard'
+            }}
+          })
+        }
+        watched()
+        
+      });
+    });
+  
+}
+watchedMovie()
